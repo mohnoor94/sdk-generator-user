@@ -5,4 +5,4 @@ on:
 
 jobs:
   generate-sdk:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/generator-main.yaml@reuse-generator
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/generator-main.yaml@mohnoor94/reuse-generator

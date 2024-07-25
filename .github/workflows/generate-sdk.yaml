@@ -6,3 +6,9 @@ on:
 jobs:
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/generator-main.yaml@mohnoor94/reuse-generator
+    with:
+      name: "test"
+      specs_url: "https://ewe-assets.s3.amazonaws.com/developer-tools/api/rapid/v3/specs.yaml"
+      endpoint_prefix: "/v3"
+      version: "0.0.1"
+      production_release: false

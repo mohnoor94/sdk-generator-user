@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  runs-on: ubuntu-latest
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/generator-main.yaml@mohnoor94/reuse-generator
     with:

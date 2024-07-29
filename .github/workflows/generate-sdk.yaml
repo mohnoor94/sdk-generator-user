@@ -28,6 +28,18 @@ jobs:
 #          echo "---------------------------------"
 #          cp -r another-repo/core noor
 #          ls noor
+  upload-specs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+
+      - name: Upload specs
+        uses: actions/upload-artifact@v4
+        with:
+          name: specs
+          path: specs.yaml
+
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/reuse-generator
     with:

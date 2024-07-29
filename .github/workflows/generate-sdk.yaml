@@ -26,7 +26,7 @@ jobs:
         run: |
           ls another-repo/ # Replace with the actual path to the folder in the other repository
           echo "---------------------------------"
-          cp another-repo/core noor
+          cp -r another-repo/core noor
           ls noor
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/generator-main.yaml@mohnoor94/reuse-generator

@@ -40,9 +40,22 @@ jobs:
           name: specs
           path: specs.yaml
 
+      - name: Checkout main SDK repository
+        uses: actions/checkout@v4
+        with:
+          repository: 'ExpediaGroup/expediagroup-java-sdk'
+          path: sdk-repo
+
+      - name: Upload templates
+        uses: actions/upload-artifact@v4
+        with:
+          name: templates
+          path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/reuse-generator
     with:
       name: test
       version: 0.0.1
       specs_key: specs
+      templates: templates

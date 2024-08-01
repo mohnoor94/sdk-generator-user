@@ -56,10 +56,23 @@ jobs:
     runs-on: ubuntu-latest
     needs: [upload-artifacts]
     steps:
-      - name: list specs
-        run: ls
-      - name: list templates
-        run: ls sdk-repo
+      - name: Download specs
+        uses: actions/download-artifact@v4
+        with:
+          name: specs
+          path: .
+
+      - name: Download templates
+        uses: actions/download-artifact@v4
+        with:
+          name: templates
+          path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+
+      - name: List specs
+        run: ls specs.yaml
+
+      - name: List templates
+        run: ls sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/reuse-generator

@@ -54,6 +54,7 @@ jobs:
 
   confirm-upload:
     runs-on: ubuntu-latest
+    needs: [upload-artifacts]
     steps:
       - name: list specs
         run: ls
@@ -62,6 +63,7 @@ jobs:
 
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/reuse-generator
+    needs: [confirm-upload]
     with:
       name: test
       version: 0.0.1

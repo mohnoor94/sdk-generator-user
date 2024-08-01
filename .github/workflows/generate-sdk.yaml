@@ -58,7 +58,7 @@ jobs:
       - name: list specs
         run: ls
       - name: list templates
-        run: ls sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+        run: ls sdk-repo
 
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/reuse-generator

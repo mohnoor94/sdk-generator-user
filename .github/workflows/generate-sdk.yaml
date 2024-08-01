@@ -4,31 +4,31 @@ on:
   workflow_dispatch:
 
 jobs:
-#  read-folder:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout current repository
-#        uses: actions/checkout@v2
-#
-#      - name: Checkout another repository
-#        uses: actions/checkout@v2
-#        with:
-#          repository: 'ExpediaGroup/expediagroup-java-sdk' # Replace with the actual owner and repository name
-#          path: 'another-repo' # The directory where the repository will be checked out
-#
-#      - name: List files in the current repository
-#        run: ls . # Replace with the actual path to the folder in the current repository
-#
-#      - name: print a divider
-#        run: echo "---------------------------------"
-#
-#      - name: List files in the folder from another repository
-#        run: |
-#          ls another-repo/ # Replace with the actual path to the folder in the other repository
-#          echo "---------------------------------"
-#          cp -r another-repo/core noor
-#          ls noor
-  upload-specs:
+  #  read-folder:
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - name: Checkout current repository
+  #        uses: actions/checkout@v2
+  #
+  #      - name: Checkout another repository
+  #        uses: actions/checkout@v2
+  #        with:
+  #          repository: 'ExpediaGroup/expediagroup-java-sdk' # Replace with the actual owner and repository name
+  #          path: 'another-repo' # The directory where the repository will be checked out
+  #
+  #      - name: List files in the current repository
+  #        run: ls . # Replace with the actual path to the folder in the current repository
+  #
+  #      - name: print a divider
+  #        run: echo "---------------------------------"
+  #
+  #      - name: List files in the folder from another repository
+  #        run: |
+  #          ls another-repo/ # Replace with the actual path to the folder in the other repository
+  #          echo "---------------------------------"
+  #          cp -r another-repo/core noor
+  #          ls noor
+  upload-artifacts:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current repository
@@ -52,10 +52,18 @@ jobs:
           name: templates
           path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
+  confirm-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list specs
+        run: ls
+      - name: list templates
+        run: ls sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/reuse-generator
     with:
       name: test
       version: 0.0.1
       specs_key: specs
-      templates: templates
+      templates: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk

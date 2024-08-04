@@ -78,7 +78,7 @@ jobs:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/reuse-generator
     needs: [confirm-upload]
     with:
-      name: test
+      name: rapid
       version: 0.0.1
       specs_key: specs
       templates: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk

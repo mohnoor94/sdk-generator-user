@@ -24,7 +24,8 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Item"
-      tags: ListItems
+      tags:
+        - ListItems
   "/items/{itemId}":
     get:
       summary: Get an item by ID
@@ -44,7 +45,8 @@ paths:
                 $ref: "#/components/schemas/Item"
         "404":
           description: Item not found
-      tags: GetItemById
+      tags:
+        - GetItemById
 components:
   schemas:
     Item:

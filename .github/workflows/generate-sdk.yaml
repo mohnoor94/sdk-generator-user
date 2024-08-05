@@ -71,4 +71,4 @@ jobs:
       name: rapid
       version: 0.0.1
       templates: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
-      specs: tspecs.yaml
+      specs: tspecs

@@ -31,6 +31,8 @@ jobs:
   transform-specs:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfeserve-transform-specs.yaml@mohnoor94/add-spec-transformation-selfserve-action
     needs: [upload-artifacts]
+    with:
+      transformers: '--headers --operationIdsToTags --endpoint /'
 
   confirm-upload:
     runs-on: ubuntu-latest

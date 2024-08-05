@@ -29,7 +29,7 @@ jobs:
           path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
   transform-specs:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/add-spec-transformation-selfserve-action.yaml@mohnoor94
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/add-spec-transformation-selfserve-action.yaml@mohnoor94/add-spec-transformation-selfserve-action
     needs: [upload-artifacts]
 
   confirm-upload:

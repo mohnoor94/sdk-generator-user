@@ -28,6 +28,10 @@ jobs:
           name: templates
           path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
+  transform-specs:
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/add-spec-transformation-selfserve-action@mohnoor94
+    needs: [upload-artifacts]
+
   confirm-upload:
     runs-on: ubuntu-latest
     needs: [upload-artifacts]
@@ -38,6 +42,12 @@ jobs:
           name: specs
           path: .
 
+      - name: Download specs
+        uses: actions/download-artifact@v4
+        with:
+          name: tspecs
+          path: .
+
       - name: Download templates
         uses: actions/download-artifact@v4
         with:
@@ -45,7 +55,9 @@ jobs:
           path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
       - name: List specs
-        run: ls specs.yaml
+        run: |
+          ls specs.yaml
+          ls tspecs.yaml
 
       - name: List templates
         run: ls sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk

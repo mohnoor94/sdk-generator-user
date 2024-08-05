@@ -34,7 +34,7 @@ jobs:
 
   confirm-upload:
     runs-on: ubuntu-latest
-    needs: [upload-artifacts]
+    needs: [transform-specs]
     steps:
       - name: Download specs
         uses: actions/download-artifact@v4

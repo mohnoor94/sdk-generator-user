@@ -6369,7 +6369,6 @@ paths:
         schema:
           type: string
         example: '2024-10-01'
-        example: '2024-09-01'
       - name: checkout
         in: query
         description: |

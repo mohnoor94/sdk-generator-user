@@ -65,7 +65,7 @@ jobs:
         run: ls sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
   generate-sdk:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/main
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@main
     needs: [confirm-upload]
     with:
       name: rapid

@@ -62,7 +62,7 @@ jobs:
           ls tspecs.yaml
 
       - name: List templates
-        run: ls templates
+        run: ls templates/
 
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@main

@@ -33,7 +33,7 @@ jobs:
           path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
   transform-specs:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfeserve-transform-specs.yaml@mohnoor94/SDK-1405
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-transform-specs.yaml@mohnoor94/SDK-1405
     needs: [upload-artifacts]
     with:
       transformers: '--headers --operationIdsToTags --endpoint /'

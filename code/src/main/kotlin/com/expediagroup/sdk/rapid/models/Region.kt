@@ -46,7 +46,7 @@ import javax.validation.constraints.Size
  * @param type Region type.
  * @param name Region name.
  * @param nameFull Full region name.
- * @param descriptor Specific information about the region e.g. whether it covers surrounding areas for a city. Only present when relevant for a region. See our [region descriptors reference](https://developers.expediagroup.com/docs/rapid/lodging/geography/geography-reference-lists) for current known descriptor values.
+ * @param descriptor Specific information about the region e.g. whether it covers surrounding areas for a city. Only present when relevant for a region. See our [region descriptors reference](https:/developers.expediagroup.com/docs/rapid/lodging/geography/geography-reference-lists) for current known descriptor values.
  * @param iataAirportCode 3-character IATA airport code.
  * @param iataAirportMetroCode 3-character IATA airport metropolitan code of the metropolitan airport area.
  * @param countryCode Region country code (ISO 3166-1 alpha-2).
@@ -77,7 +77,7 @@ data class Region(
     @JsonProperty("name_full")
     @field:Valid
     val nameFull: kotlin.String? = null,
-    // Specific information about the region e.g. whether it covers surrounding areas for a city. Only present when relevant for a region. See our [region descriptors reference](https://developers.expediagroup.com/docs/rapid/lodging/geography/geography-reference-lists) for current known descriptor values.
+    // Specific information about the region e.g. whether it covers surrounding areas for a city. Only present when relevant for a region. See our [region descriptors reference](https:/developers.expediagroup.com/docs/rapid/lodging/geography/geography-reference-lists) for current known descriptor values.
     @JsonProperty("descriptor")
     @field:Valid
     val descriptor: kotlin.String? = null,

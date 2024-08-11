@@ -43,7 +43,7 @@ import javax.validation.constraints.Size
  * @param id The amenity definition ID for this amenity.
  * @param name Amenity name.
  * @param `value` Amenity value.
- * @param categories This is an optional field and will be present only if the amenity falls into one or more of these amenity categories.<br> See the Amenity Categories section of the [Content Reference Lists](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for a list of values.
+ * @param categories This is an optional field and will be present only if the amenity falls into one or more of these amenity categories.<br> See the Amenity Categories section of the [Content Reference Lists](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for a list of values.
  */
 data class Amenity(
     // The amenity definition ID for this amenity.
@@ -58,7 +58,7 @@ data class Amenity(
     @JsonProperty("value")
     @field:Valid
     val `value`: kotlin.String? = null,
-    // This is an optional field and will be present only if the amenity falls into one or more of these amenity categories.<br> See the Amenity Categories section of the [Content Reference Lists](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for a list of values.
+    // This is an optional field and will be present only if the amenity falls into one or more of these amenity categories.<br> See the Amenity Categories section of the [Content Reference Lists](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for a list of values.
     @JsonProperty("categories")
     @field:Valid
     val categories: kotlin.collections.List<kotlin.String>? = null

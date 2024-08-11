@@ -27,7 +27,7 @@ class GetChainReferenceOperation(
 ) : Operation<
         Nothing
     >(
-        "///chains",
+        "//chains",
         "GET",
         "getChainReference",
         null,

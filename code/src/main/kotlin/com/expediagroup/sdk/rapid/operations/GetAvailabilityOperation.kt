@@ -27,7 +27,7 @@ class GetAvailabilityOperation(
 ) : Operation<
         Nothing
     >(
-        "///properties/availability",
+        "//properties/availability",
         "GET",
         "getAvailability",
         null,

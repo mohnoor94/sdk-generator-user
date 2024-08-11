@@ -50,11 +50,11 @@ import javax.validation.constraints.Size
  * @param id Unique identifier for a room type.
  * @param name Room type name.
  * @param descriptions
- * @param amenities Lists all of the amenities available in the room. See our [amenities reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
+ * @param amenities Lists all of the amenities available in the room. See our [amenities reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
  * @param images The room's images. Contains all room images available.
  * @param bedGroups A map of the room's bed groups.
  * @param area
- * @param views A map of the room views. See our [view reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known room view ID and name values.
+ * @param views A map of the room views. See our [view reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known room view ID and name values.
  * @param occupancy
  */
 data class RoomContent(
@@ -69,7 +69,7 @@ data class RoomContent(
     @JsonProperty("descriptions")
     @field:Valid
     val descriptions: DescriptionsRoom? = null,
-    // Lists all of the amenities available in the room. See our [amenities reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
+    // Lists all of the amenities available in the room. See our [amenities reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
     @JsonProperty("amenities")
     @field:Valid
     val amenities: kotlin.collections.Map<kotlin.String, Amenity>? = null,
@@ -84,7 +84,7 @@ data class RoomContent(
     @JsonProperty("area")
     @field:Valid
     val area: Area? = null,
-    // A map of the room views. See our [view reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known room view ID and name values.
+    // A map of the room views. See our [view reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known room view ID and name values.
     @JsonProperty("views")
     @field:Valid
     val views: kotlin.collections.Map<kotlin.String, View>? = null,

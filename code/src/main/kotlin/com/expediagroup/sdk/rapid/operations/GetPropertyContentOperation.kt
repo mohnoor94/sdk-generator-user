@@ -29,7 +29,7 @@ class GetPropertyContentOperation private constructor(
 ) : Operation<
         Nothing
     >(
-        url(null, link, "///properties/content"),
+        url(null, link, "//properties/content"),
         "GET",
         "getPropertyContent",
         null,
@@ -52,7 +52,7 @@ class GetPropertyContentOperation private constructor(
 
     companion object : LinkableOperation {
         override fun pathPattern(): String {
-            return "///properties/content"
+            return "//properties/content"
         }
     }
 }

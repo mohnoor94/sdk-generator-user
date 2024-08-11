@@ -70,7 +70,8 @@ jobs:
 
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/SDK-1405
-    needs: [confirm-upload]
+#    needs: [confirm-upload]
+    needs: [transform-specs]
     with:
       name: rapid
       version: 0.0.2

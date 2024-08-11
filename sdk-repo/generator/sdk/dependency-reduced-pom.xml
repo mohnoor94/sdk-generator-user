@@ -4,8 +4,8 @@
   <groupId>com.expediagroup</groupId>
   <artifactId>rapid-sdk</artifactId>
   <name>EG rapid-sdk for Java</name>
-  <version>0.0.3</version>
-  <description>EG rapid-sdk v0.0.3</description>
+  <version>0.0.4</version>
+  <description>EG rapid-sdk v0.0.4</description>
   <url>https://github.com/ExpediaGroup/test-sdk</url>
   <inceptionYear>2022</inceptionYear>
   <developers>
@@ -44,7 +44,7 @@
       </testResource>
     </testResources>
     <directory>/home/runner/work/sdk-generator-user/sdk-generator-user/sdk-repo/generator/openapi/target/sdk/target</directory>
-    <finalName>rapid-sdk-0.0.3</finalName>
+    <finalName>rapid-sdk-0.0.4</finalName>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -488,7 +488,7 @@
           </dokkaPlugins>
           <pluginsConfiguration>
             <org.jetbrains.dokka.versioning.VersioningPlugin>
-              <version>0.0.3</version>
+              <version>0.0.4</version>
               <olderVersionsDir />
             </org.jetbrains.dokka.versioning.VersioningPlugin>
           </pluginsConfiguration>
@@ -686,7 +686,7 @@
                   <classifier>javadoc</classifier>
                   <classesDirectory>/home/runner/work/sdk-generator-user/sdk-generator-user/sdk-repo/generator/openapi/target/sdk/target/site/apidocs</classesDirectory>
                   <includes>**/*</includes>
-                  <finalName>rapid-sdk-0.0.3</finalName>
+                  <finalName>rapid-sdk-0.0.4</finalName>
                 </configuration>
               </execution>
             </executions>
@@ -720,7 +720,7 @@
               </dokkaPlugins>
               <pluginsConfiguration>
                 <org.jetbrains.dokka.versioning.VersioningPlugin>
-                  <version>0.0.3</version>
+                  <version>0.0.4</version>
                   <olderVersionsDir />
                 </org.jetbrains.dokka.versioning.VersioningPlugin>
               </pluginsConfiguration>
@@ -3323,7 +3323,7 @@
     <minimum.code.coverage>0.90</minimum.code.coverage>
     <maven-dependency-plugin.version>3.7.1</maven-dependency-plugin.version>
     <maven.licence.plugin.version>4.5</maven.licence.plugin.version>
-    <sdk-version>0.0.3</sdk-version>
+    <sdk-version>0.0.4</sdk-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <shadePrefix>com.expediagroup.sdk</shadePrefix>
     <jacoco-plugin.version>0.8.12</jacoco-plugin.version>

@@ -69,7 +69,7 @@ jobs:
 #        run: ls ./sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
   generate-sdk:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/SDK-1405
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@main
 #    needs: [confirm-upload]
     needs: [transform-specs]
     with:

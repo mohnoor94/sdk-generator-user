@@ -74,7 +74,7 @@ jobs:
     needs: [transform-specs]
     with:
       name: rapid
-      version: 0.0.2
+      version: 0.0.3
       templates: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
       specs_key: tspecs
 
@@ -82,5 +82,5 @@ jobs:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-publish-sources.yaml@mohnoor94/SDK-1407-drafts
     needs: [generate-sdk]
     with:
-      version: 0.0.2
+      version: 0.0.3
       path: code

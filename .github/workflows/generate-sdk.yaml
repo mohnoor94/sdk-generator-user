@@ -38,35 +38,35 @@ jobs:
     with:
       transformations: '--headers --operationIdsToTags --endpoint /'
 
-  confirm-upload:
-    runs-on: ubuntu-latest
-    needs: [transform-specs]
-    steps:
-      - name: Download specs
-        uses: actions/download-artifact@v4
-        with:
-          name: specs
-          path: .
-
-      - name: Download specs
-        uses: actions/download-artifact@v4
-        with:
-          name: tspecs
-          path: .
-
-      - name: Download templates
-        uses: actions/download-artifact@v4
-        with:
-          name: templates
-          path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
-
-      - name: List specs
-        run: |
-          ls specs.yaml
-          ls tspecs.yaml
-
-      - name: List templates
-        run: ls ./sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+#  confirm-upload:
+#    runs-on: ubuntu-latest
+#    needs: [transform-specs]
+#    steps:
+#      - name: Download specs
+#        uses: actions/download-artifact@v4
+#        with:
+#          name: specs
+#          path: .
+#
+#      - name: Download specs
+#        uses: actions/download-artifact@v4
+#        with:
+#          name: tspecs
+#          path: .
+#
+#      - name: Download templates
+#        uses: actions/download-artifact@v4
+#        with:
+#          name: templates
+#          path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+#
+#      - name: List specs
+#        run: |
+#          ls specs.yaml
+#          ls tspecs.yaml
+#
+#      - name: List templates
+#        run: ls ./sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
   generate-sdk:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/SDK-1405

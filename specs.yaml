@@ -22,7 +22,7 @@ tags:
   - name: Notifications
     description: Requests test notifications and undelivered notifications.
 paths:
-  //properties/content:
+  ///properties/content:
     get:
       tags:
         - getPropertyContent
@@ -306,7 +306,7 @@ paths:
             Optional:
               ? value
             Recent:
-              value: 2023-09-21
+              value: 2023-09-21T00:00:00.000Z
         - name: date_added_start
           in: query
           description: >
@@ -318,7 +318,7 @@ paths:
             Optional:
               ? value
             Recent:
-              value: 2023-09-20
+              value: 2023-09-20T00:00:00.000Z
         - name: date_updated_end
           in: query
           description: >
@@ -330,7 +330,7 @@ paths:
             Optional:
               ? value
             Recent:
-              value: 2023-09-21
+              value: 2023-09-21T00:00:00.000Z
         - name: date_updated_start
           in: query
           description: >
@@ -342,7 +342,7 @@ paths:
             Optional:
               ? value
             Recent:
-              value: 2023-09-20
+              value: 2023-09-20T00:00:00.000Z
         - name: include
           in: query
           description: >
@@ -2189,7 +2189,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //properties/inactive:
+  ///properties/inactive:
     get:
       tags:
         - getInactiveProperties
@@ -2227,7 +2227,7 @@ paths:
             The earliest date that a property became inactive to include in the results. ISO 8601 format (YYYY-MM-DD)
           schema:
             type: string
-          example: 2023-05-01
+          example: 2023-05-01T00:00:00.000Z
         - name: token
           in: query
           description: >
@@ -2569,7 +2569,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//properties/{property_id}/guest-reviews":
+  "///properties/{property_id}/guest-reviews":
     get:
       tags:
         - getPropertyGuestReviews
@@ -2753,7 +2753,7 @@ paths:
                   recent:
                     - verification_source: Expedia verified Review
                       title: Definitely staying again
-                      date_submitted: 2019-02-11T18:19:40Z
+                      date_submitted: 2019-02-11T18:19:40.000Z
                       rating: "5"
                       reviewer_name: Bill
                       stay_date: 2019-02
@@ -2762,7 +2762,7 @@ paths:
                       text: Staff very helpful and friendly. Pool was 18 meters deep, very strange.
                     - verification_source: Expedia verified Review
                       title: Pool much too deep
-                      date_submitted: 2019-02-10T11:15:01Z
+                      date_submitted: 2019-02-10T11:15:01.000Z
                       rating: "2"
                       reviewer_name: Gregory
                       stay_date: 2019-01
@@ -2775,7 +2775,7 @@ paths:
                             have the opportunity to welcome you back
 
                             in the near future. Best regards, Kara (General Manager)
-                          date: 2019-02-11T14:36:54Z
+                          date: 2019-02-11T14:36:54.000Z
         "400":
           description: Invalid Input
           headers:
@@ -3027,7 +3027,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //files/properties/catalog:
+  ///files/properties/catalog:
     get:
       tags:
         - getPropertyCatalogFile
@@ -3443,7 +3443,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //files/properties/content:
+  ///files/properties/content:
     get:
       tags:
         - getPropertyContentFile
@@ -3840,7 +3840,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //regions:
+  ///regions:
     get:
       tags:
         - getRegions
@@ -4472,7 +4472,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//regions/{region_id}":
+  "///regions/{region_id}":
     get:
       tags:
         - getRegion
@@ -4970,7 +4970,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //properties/geography:
+  ///properties/geography:
     post:
       tags:
         - postGeography
@@ -5295,7 +5295,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //properties/availability:
+  ///properties/availability:
     get:
       tags:
         - getAvailability
@@ -5361,7 +5361,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 2024-10-01
+          example: 2024-10-01T00:00:00.000Z
         - name: checkout
           in: query
           description: >
@@ -5371,7 +5371,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 2024-10-03
+          example: 2024-10-03T00:00:00.000Z
         - name: currency
           in: query
           description: >
@@ -5743,16 +5743,16 @@ paths:
                                       quantity: 1
                               cancel_penalties:
                                 - currency: USD
-                                  start: 2018-02-12T11:59:00.000-08:00
-                                  end: 2018-02-12T11:59:00.000-08:00
+                                  start: 2018-02-12T19:59:00.000Z
+                                  end: 2018-02-12T19:59:00.000Z
                                   amount: "10.00"
                               nonrefundable_date_ranges:
-                                - start: 2022-02-02
-                                  end: 2022-02-02
+                                - start: 2022-02-02T00:00:00.000Z
+                                  end: 2022-02-02T00:00:00.000Z
                               marketing_fee_incentives:
                                 - source: property
-                                  start: 2022-02-02
-                                  end: 2022-02-02
+                                  start: 2022-02-02T00:00:00.000Z
+                                  end: 2022-02-02T00:00:00.000Z
                               occupancy_pricing:
                                 "2":
                                   nightly:
@@ -5968,7 +5968,7 @@ paths:
                                 currency: USD
                               deposits:
                                 - value: "70.00"
-                                  due: 2025-12-21
+                                  due: 2025-12-21T00:00:00.000Z
                                   currency: USD
                       links:
                         additional_rates:
@@ -6024,12 +6024,12 @@ paths:
                                       quantity: 1
                               cancel_penalties:
                                 - currency: USD
-                                  start: 2018-02-12T11:59:00.000-08:00
-                                  end: 2018-02-12T11:59:00.000-08:00
+                                  start: 2018-02-12T19:59:00.000Z
+                                  end: 2018-02-12T19:59:00.000Z
                                   amount: "10.00"
                               nonrefundable_date_ranges:
-                                - start: 2022-02-02
-                                  end: 2022-02-02
+                                - start: 2022-02-02T00:00:00.000Z
+                                  end: 2022-02-02T00:00:00.000Z
                               occupancy_pricing:
                                 "2":
                                   nightly:
@@ -6245,7 +6245,7 @@ paths:
                                 currency: USD
                               deposits:
                                 - value: "70.00"
-                                  due: 2025-12-21
+                                  due: 2025-12-21T00:00:00.000Z
                                   currency: USD
                       links:
                         additional_rates:
@@ -6318,10 +6318,10 @@ paths:
                     fields:
                       - name: checkin
                         type: querystring
-                        value: 2024-09-21
+                        value: 2024-09-21T00:00:00.000Z
                       - name: checkout
                         type: querystring
-                        value: 2025-10-21
+                        value: 2025-10-21T00:00:00.000Z
                   - type: number_of_occupancies.invalid_above_maximum
                     message: Number of occupancies must be less than 9.
                     fields:
@@ -6465,7 +6465,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//properties/{property_id}/availability":
+  "///properties/{property_id}/availability":
     get:
       tags:
         - getAdditionalAvailability
@@ -6556,7 +6556,7 @@ paths:
             If specified must also specify `checkout`.
           schema:
             type: string
-          example: 2024-10-01
+          example: 2024-10-01T00:00:00.000Z
         - name: checkout
           in: query
           description: >
@@ -6569,7 +6569,7 @@ paths:
             If specified must also specify `checkin`.<br>
           schema:
             type: string
-          example: 2024-10-03
+          example: 2024-10-03T00:00:00.000Z
         - name: exclusion
           in: query
           description: >
@@ -6808,8 +6808,8 @@ paths:
                                       quantity: 1
                               cancel_penalties:
                                 - currency: USD
-                                  start: 2018-02-12T11:59:00.000-08:00
-                                  end: 2018-02-12T11:59:00.000-08:00
+                                  start: 2018-02-12T19:59:00.000Z
+                                  end: 2018-02-12T19:59:00.000Z
                                   amount: "10.00"
                                   nights: 1
                                   percent: 30%
@@ -7028,7 +7028,7 @@ paths:
                                 currency: USD
                               deposits:
                                 - value: "70.00"
-                                  due: 2025-12-21
+                                  due: 2025-12-21T00:00:00.000Z
                                   currency: USD
                       links:
                         additional_rates:
@@ -7101,10 +7101,10 @@ paths:
                     fields:
                       - name: checkin
                         type: querystring
-                        value: 2024-09-21
+                        value: 2024-09-21T00:00:00.000Z
                       - name: checkout
                         type: querystring
-                        value: 2025-10-21
+                        value: 2025-10-21T00:00:00.000Z
                   - type: number_of_occupancies.invalid_above_maximum
                     message: Number of occupancies must be less than 9.
                     fields:
@@ -7243,7 +7243,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//properties/{property_id}/rooms/{room_id}/rates/{rate_id}":
+  "///properties/{property_id}/rooms/{room_id}/rates/{rate_id}":
     get:
       tags:
         - priceCheck
@@ -7421,7 +7421,7 @@ paths:
                       currency: USD
                     deposits:
                       - value: "70.00"
-                        due: 2025-12-21
+                        due: 2025-12-21T00:00:00.000Z
                         currency: USD
                     links:
                       book:
@@ -7530,7 +7530,7 @@ paths:
                       currency: USD
                     deposits:
                       - value: "70.00"
-                        due: 2025-12-21
+                        due: 2025-12-21T00:00:00.000Z
                         currency: USD
                     amount_owed:
                       billable_currency:
@@ -7818,7 +7818,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//properties/{property_id}/payment-options":
+  "///properties/{property_id}/payment-options":
     get:
       tags:
         - getPaymentOptions
@@ -8120,7 +8120,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //calendars/availability:
+  ///calendars/availability:
     get:
       tags:
         - getCalendarAvailability
@@ -8173,7 +8173,7 @@ paths:
           schema:
             type: string
             format: date
-          example: 2023-01-15
+          example: 2023-01-15T00:00:00.000Z
         - name: end_date
           in: query
           description: >
@@ -8184,7 +8184,7 @@ paths:
           schema:
             type: string
             format: date
-          example: 2023-12-17
+          example: 2023-12-17T00:00:00.000Z
       responses:
         "200":
           description: OK
@@ -8238,14 +8238,14 @@ paths:
                   value:
                     - property_id: "1234"
                       days:
-                        - date: 2022-09-20
+                        - date: 2022-09-20T00:00:00.000Z
                           available: true
                           checkin: CHECKIN_VALID
                           checkout: CHECKOUT_VALID
                           stay_constraints:
                             min_stay: 1
                             max_stay: 14
-                        - date: 2022-09-21
+                        - date: 2022-09-21T00:00:00.000Z
                           available: true
                           checkin: CHECKIN_VALID
                           checkout: CHECKOUT_VALID
@@ -8256,7 +8256,7 @@ paths:
                   value:
                     - property_id: "1234"
                       days:
-                        - date: 2022-09-20
+                        - date: 2022-09-20T00:00:00.000Z
                           available: true
                           checkin: CHECKIN_VALID
                           checkout: CHECKOUT_VALID
@@ -8265,7 +8265,7 @@ paths:
                             max_stay: 14
                     - property_id: "5678"
                       days:
-                        - date: 2022-09-20
+                        - date: 2022-09-20T00:00:00.000Z
                           available: true
                           checkin: CHECKIN_VALID
                           checkout: CHECKOUT_VALID
@@ -8473,7 +8473,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //payment-sessions:
+  ///payment-sessions:
     post:
       tags:
         - postPaymentSessions
@@ -8780,7 +8780,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //itineraries:
+  ///itineraries:
     get:
       tags:
         - getReservation
@@ -8934,8 +8934,8 @@ paths:
                             expedia: "1234567890"
                             property: BEF23123AA
                           bed_group_id: d395b56d-d31d-4a84-ad2b-66820b1d48e2
-                          checkin: 2018-09-21
-                          checkout: 2018-09-23
+                          checkin: 2018-09-21T00:00:00.000Z
+                          checkout: 2018-09-23T00:00:00.000Z
                           number_of_adults: 2
                           child_ages:
                             - 2
@@ -8966,17 +8966,17 @@ paths:
                                   description: 20% discount on theme park tickets purchased through the concierge
                                     desk.
                             cancel_penalties:
-                              - start: 2018-01-01T01:01:01.000-08:00
-                                end: 2018-12-12T01:01:01.000-08:00
+                              - start: 2018-01-01T09:01:01.000Z
+                                end: 2018-12-12T09:01:01.000Z
                                 amount: "250.75"
                                 currency: USD
                             nonrefundable_date_ranges:
-                              - start: 2022-02-02
-                                end: 2022-02-02
+                              - start: 2022-02-02T00:00:00.000Z
+                                end: 2022-02-02T00:00:00.000Z
                             deposits:
                               - currency: USD
                                 value: "220.75"
-                                due: 2018-12-12T01:01:01.000-08:00
+                                due: 2018-12-12T09:01:01.000Z
                             pricing:
                               nightly:
                                 - - type: base_rate
@@ -9097,8 +9097,8 @@ paths:
                             expedia: "1234567890"
                             property: BEF23123AA
                           bed_group_id: d395b56d-d31d-4a84-ad2b-66820b1d48e2
-                          checkin: 2018-09-21
-                          checkout: 2018-09-23
+                          checkin: 2018-09-21T00:00:00.000Z
+                          checkout: 2018-09-23T00:00:00.000Z
                           number_of_adults: 2
                           child_ages:
                             - 2
@@ -9129,17 +9129,17 @@ paths:
                                   description: 20% discount on theme park tickets purchased through the concierge
                                     desk.
                             cancel_penalties:
-                              - start: 2018-01-01T01:01:01.000-08:00
-                                end: 2018-12-12T01:01:01.000-08:00
+                              - start: 2018-01-01T09:01:01.000Z
+                                end: 2018-12-12T09:01:01.000Z
                                 amount: "250.75"
                                 currency: USD
                             nonrefundable_date_ranges:
-                              - start: 2018-09-14
-                                end: 2018-09-23
+                              - start: 2018-09-14T00:00:00.000Z
+                                end: 2018-09-23T00:00:00.000Z
                             deposits:
                               - currency: USD
                                 value: "220.75"
-                                due: 2018-08-24T01:01:01.000-08:00
+                                due: 2018-08-24T09:01:01.000Z
                             pricing:
                               nightly:
                                 - - type: base_rate
@@ -9237,8 +9237,8 @@ paths:
                               expedia: "664637628"
                               property: COR8729347BB
                             bed_group_id: d395b56d-d31d-4a84-ad2b-66820b1d48e2
-                            checkin: 2018-09-21
-                            checkout: 2018-09-22
+                            checkin: 2018-09-21T00:00:00.000Z
+                            checkout: 2018-09-22T00:00:00.000Z
                             number_of_adults: 2
                             child_ages:
                               - 2
@@ -9266,7 +9266,7 @@ paths:
                               deposits:
                                 - currency: USD
                                   value: "220.75"
-                                  due: 2018-08-24T01:01:01.000-08:00
+                                  due: 2018-08-24T09:01:01.000Z
                               pricing:
                                 nightly:
                                   - - type: base_rate
@@ -9325,8 +9325,8 @@ paths:
                               expedia: "1234567890"
                               property: BEF23123AA
                             bed_group_id: d395b56d-d31d-4a84-ad2b-66820b1d48e2
-                            checkin: 2018-09-21
-                            checkout: 2018-09-23
+                            checkin: 2018-09-21T00:00:00.000Z
+                            checkout: 2018-09-23T00:00:00.000Z
                             number_of_adults: 2
                             child_ages:
                               - 2
@@ -9354,7 +9354,7 @@ paths:
                               deposits:
                                 - currency: USD
                                   value: "220.75"
-                                  due: 2018-08-24T01:01:01.000-08:00
+                                  due: 2018-08-24T09:01:01.000Z
                               pricing:
                                 nightly:
                                   - - type: base_rate
@@ -10048,7 +10048,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//itineraries/{itinerary_id}":
+  "///itineraries/{itinerary_id}":
     get:
       tags:
         - getReservationByItineraryId
@@ -10217,8 +10217,8 @@ paths:
                           expedia: "1234567890"
                           property: BEF23123AA
                         bed_group_id: d395b56d-d31d-4a84-ad2b-66820b1d48e2
-                        checkin: 2018-09-21
-                        checkout: 2018-09-23
+                        checkin: 2018-09-21T00:00:00.000Z
+                        checkout: 2018-09-23T00:00:00.000Z
                         number_of_adults: 2
                         child_ages:
                           - 2
@@ -10250,17 +10250,17 @@ paths:
                                 description: 20% discount on theme park tickets purchased through the concierge
                                   desk.
                           cancel_penalties:
-                            - start: 2018-01-01T01:01:01.000-08:00
-                              end: 2018-12-12T01:01:01.000-08:00
+                            - start: 2018-01-01T09:01:01.000Z
+                              end: 2018-12-12T09:01:01.000Z
                               amount: "250.75"
                               currency: USD
                           nonrefundable_date_ranges:
-                            - start: 2022-02-02
-                              end: 2022-02-02
+                            - start: 2022-02-02T00:00:00.000Z
+                              end: 2022-02-02T00:00:00.000Z
                           deposits:
                             - currency: USD
                               value: "220.75"
-                              due: 2018-12-12T01:01:01.000-08:00
+                              due: 2018-12-12T09:01:01.000Z
                           pricing:
                             nightly:
                               - - type: base_rate
@@ -10362,8 +10362,8 @@ paths:
                           expedia: "1234567890"
                           property: BEF23123AA
                         bed_group_id: d395b56d-d31d-4a84-ad2b-66820b1d48e2
-                        checkin: 2018-09-21
-                        checkout: 2018-09-23
+                        checkin: 2018-09-21T00:00:00.000Z
+                        checkout: 2018-09-23T00:00:00.000Z
                         number_of_adults: 2
                         child_ages:
                           - 2
@@ -10394,17 +10394,17 @@ paths:
                                 description: 20% discount on theme park tickets purchased through the concierge
                                   desk.
                           cancel_penalties:
-                            - start: 2018-01-01T01:01:01.000-08:00
-                              end: 2018-12-12T01:01:01.000-08:00
+                            - start: 2018-01-01T09:01:01.000Z
+                              end: 2018-12-12T09:01:01.000Z
                               amount: "250.75"
                               currency: USD
                           nonrefundable_date_ranges:
-                            - start: 2018-09-14
-                              end: 2018-09-23
+                            - start: 2018-09-14T00:00:00.000Z
+                              end: 2018-09-23T00:00:00.000Z
                           deposits:
                             - currency: USD
                               value: "220.75"
-                              due: 2018-08-24T01:01:01.000-08:00
+                              due: 2018-08-24T09:01:01.000Z
                           pricing:
                             nightly:
                               - - type: base_rate
@@ -10505,8 +10505,8 @@ paths:
                             expedia: "664637628"
                             property: COR8729347BB
                           bed_group_id: d395b56d-d31d-4a84-ad2b-66820b1d48e2
-                          checkin: 2018-09-21
-                          checkout: 2018-09-22
+                          checkin: 2018-09-21T00:00:00.000Z
+                          checkout: 2018-09-22T00:00:00.000Z
                           number_of_adults: 2
                           child_ages:
                             - 2
@@ -10534,7 +10534,7 @@ paths:
                             deposits:
                               - currency: USD
                                 value: "220.75"
-                                due: 2018-08-24T01:01:01.000-08:00
+                                due: 2018-08-24T09:01:01.000Z
                             pricing:
                               nightly:
                                 - - type: base_rate
@@ -10593,8 +10593,8 @@ paths:
                             expedia: "1234567890"
                             property: BEF23123AA
                           bed_group_id: d395b56d-d31d-4a84-ad2b-66820b1d48e2
-                          checkin: 2018-09-21
-                          checkout: 2018-09-23
+                          checkin: 2018-09-21T00:00:00.000Z
+                          checkout: 2018-09-23T00:00:00.000Z
                           number_of_adults: 2
                           child_ages:
                             - 2
@@ -10622,7 +10622,7 @@ paths:
                             deposits:
                               - currency: USD
                                 value: "220.75"
-                                due: 2018-08-24T01:01:01.000-08:00
+                                due: 2018-08-24T09:01:01.000Z
                             pricing:
                               nightly:
                                 - - type: base_rate
@@ -11676,7 +11676,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//itineraries/{itinerary_id}/payment-sessions":
+  "///itineraries/{itinerary_id}/payment-sessions":
     put:
       tags:
         - putCompletePaymentSession
@@ -12044,7 +12044,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//itineraries/{itinerary_id}/rooms/{room_id}":
+  "///itineraries/{itinerary_id}/rooms/{room_id}":
     put:
       tags:
         - changeRoomDetails
@@ -12841,7 +12841,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  "//itineraries/{itinerary_id}/rooms/{room_id}/pricing":
+  "///itineraries/{itinerary_id}/rooms/{room_id}/pricing":
     put:
       tags:
         - commitChange
@@ -13354,7 +13354,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //chains:
+  ///chains:
     get:
       tags:
         - getChainReference
@@ -13670,7 +13670,7 @@ paths:
                 message: This service is currently unavailable.
       security:
         - rapidAuth: []
-  //notifications:
+  ///notifications:
     get:
       tags:
         - requestUndeliveredNotifications
@@ -15656,9 +15656,9 @@ components:
         customer_account_details:
           authentication_method: guest
           authentication_timestamp: 2018-02-12T11:59:00.000Z
-          create_date: 2018-09-15
-          change_date: 2018-09-17
-          password_change_date: 2018-09-17
+          create_date: 2018-09-15T00:00:00.000Z
+          change_date: 2018-09-17T00:00:00.000Z
+          password_change_date: 2018-09-17T00:00:00.000Z
           add_card_attempts: 1
           account_purchases: 1
         payments:
@@ -15678,7 +15678,7 @@ components:
                 state_province_code: WA
                 postal_code: "98121"
                 country_code: US
-            enrollment_date: 2018-09-15
+            enrollment_date: 2018-09-15T00:00:00.000Z
     PaymentSessionsRequestCustomerAccountDetails:
       type: object
       properties:
@@ -16254,7 +16254,7 @@ components:
           type: string
           description: The date and time when new essential information is available for
             retrieval, in extended ISO 8601 format, with ±hh:mm timezone offset.
-          example: 2022-08-12T11:59:00-08:00
+          example: 2022-08-12T19:59:00.000Z
       description: Essential information, including the supply contact information and
         any other essential information.
     SupplyContact:
@@ -16525,7 +16525,7 @@ components:
                 state_province_code: WA
                 postal_code: "98121"
                 country_code: US
-            enrollment_date: 2018-09-15
+            enrollment_date: 2018-09-15T00:00:00.000Z
             third_party_authentication:
               cavv: jELUbgG+Tgj0AREBDMLeCad+oIs=
               eci: "05"
@@ -16732,7 +16732,7 @@ components:
               xid: 47133847-13be-4ae3-9be9-e4053b9c83c0
               cavv_algorithm: "3"
               ucaf_indicator: "0"
-            enrollment_date: 2018-09-15
+            enrollment_date: 2018-09-15T00:00:00.000Z
     PaymentRequestWithPhone:
       required:
         - billing_contact

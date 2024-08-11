@@ -27,7 +27,7 @@ class GetPropertyContentFileOperation(
 ) : Operation<
         Nothing
     >(
-        "//files/properties/content",
+        "///files/properties/content",
         "GET",
         "getPropertyContentFile",
         null,

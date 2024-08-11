@@ -76,3 +76,10 @@ jobs:
       version: 0.0.1
       templates: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
       specs_key: tspecs
+
+  publish-sources:
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-publish-sources.yaml@mohnoor94/SDK-1407-drafts
+    needs: [generate-sdk]
+    with:
+      version: 0.0.1
+      path: code

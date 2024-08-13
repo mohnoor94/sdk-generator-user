@@ -36,7 +36,7 @@ jobs:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-transform-specs.yaml@main
     needs: [upload-artifacts]
     with:
-      transformations: '--headers --operationIdsToTags --endpoint /'
+      transformations: '--headers --operationIdsToTags'
 
 #  confirm-upload:
 #    runs-on: ubuntu-latest
@@ -74,13 +74,16 @@ jobs:
     needs: [transform-specs]
     with:
       name: rapid
-      version: 0.0.5
+      version: 0.0.6-SNAPSHOT
       templates: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
       specs_key: tspecs
 
-  publish-sources:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-publish-sources.yaml@mohnoor94/SDK-1407-drafts
-    needs: [generate-sdk]
-    with:
-      version: 0.0.5
-      path: code
+#  publish-sources:
+#    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-publish-sources.yaml@main
+#    needs: [generate-sdk]
+#    with:
+#      version: 0.0.6-SNAPSHOT
+#      path: code
+
+  publish:
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-release.yaml@mohnoor94/SDK-1232

@@ -27,7 +27,7 @@ class GetReservationOperation(
 ) : Operation<
         Nothing
     >(
-        "///itineraries",
+        "/itineraries",
         "GET",
         "getReservation",
         null,

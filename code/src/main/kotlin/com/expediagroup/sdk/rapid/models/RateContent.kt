@@ -42,7 +42,7 @@ import javax.validation.constraints.Size
 /**
  * An individual rate.
  * @param id Unique identifier for a rate.
- * @param amenities This lists all of the Amenities available with a specific rate, including value adds, such as breakfast. See our [amenities reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
+ * @param amenities This lists all of the Amenities available with a specific rate, including value adds, such as breakfast. See our [amenities reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
  * @param specialOfferDescription A text description of any special offers for this rate.
  */
 data class RateContent(
@@ -50,7 +50,7 @@ data class RateContent(
     @JsonProperty("id")
     @field:Valid
     val id: kotlin.String? = null,
-    // This lists all of the Amenities available with a specific rate, including value adds, such as breakfast. See our [amenities reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
+    // This lists all of the Amenities available with a specific rate, including value adds, such as breakfast. See our [amenities reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
     @JsonProperty("amenities")
     @field:Valid
     val amenities: kotlin.collections.Map<kotlin.String, Amenity>? = null,

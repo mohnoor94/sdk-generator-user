@@ -27,7 +27,7 @@ class RequestUndeliveredNotificationsOperation(
 ) : Operation<
         Nothing
     >(
-        "///notifications",
+        "/notifications",
         "GET",
         "requestUndeliveredNotifications",
         null,

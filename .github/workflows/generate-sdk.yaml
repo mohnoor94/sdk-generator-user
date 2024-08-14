@@ -4,17 +4,17 @@ on:
   workflow_dispatch:
 
 jobs:
-#  upload-artifacts:
-#    runs-on: ubuntu-latest
-#    steps:
+  upload-artifacts:
+    runs-on: ubuntu-latest
+    steps:
 #      - name: Checkout current repository
 #        uses: actions/checkout@v4
 #
-#      - name: Upload specs
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: specs
-#          path: specs.yaml
+      - name: Upload specs
+        uses: actions/upload-artifact@v4
+        with:
+          name: specs
+          path: specs.yaml
 #
 #      - name: Checkout main SDK repository
 #        uses: actions/checkout@v4

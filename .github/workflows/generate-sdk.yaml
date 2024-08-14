@@ -10,8 +10,8 @@ jobs:
       - name: Checkout current repository
         uses: actions/checkout@v4
         with:
-          repository: 'bla/blabla'
-          ref: 'bla'
+          repository: ''
+          ref: ''
 
       - name: Upload specs
         uses: actions/upload-artifact@v4
@@ -96,5 +96,5 @@ jobs:
     needs: [ upload-artifacts ]
     with:
       name: rapid
-      version: 0.0.7-SNAPSHOT
+      version: 0.0.8-SNAPSHOT
 

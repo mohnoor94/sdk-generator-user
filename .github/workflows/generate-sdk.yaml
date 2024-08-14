@@ -4,39 +4,39 @@ on:
   workflow_dispatch:
 
 jobs:
-  upload-artifacts:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout current repository
-        uses: actions/checkout@v4
-
-      - name: Upload specs
-        uses: actions/upload-artifact@v4
-        with:
-          name: specs
-          path: specs.yaml
-
-      - name: Checkout main SDK repository
-        uses: actions/checkout@v4
-        with:
-          repository: 'ExpediaGroup/expediagroup-java-sdk'
-          path: sdk-repo
-
-      - name: Confirm templates exist
-        run: |
-          ls sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
-
-      - name: Upload templates
-        uses: actions/upload-artifact@v4
-        with:
-          name: templates
-          path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
-
-  transform-specs:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-transform-specs.yaml@main
-    needs: [upload-artifacts]
-    with:
-      transformations: '--headers --operationIdsToTags'
+#  upload-artifacts:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout current repository
+#        uses: actions/checkout@v4
+#
+#      - name: Upload specs
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: specs
+#          path: specs.yaml
+#
+#      - name: Checkout main SDK repository
+#        uses: actions/checkout@v4
+#        with:
+#          repository: 'ExpediaGroup/expediagroup-java-sdk'
+#          path: sdk-repo
+#
+#      - name: Confirm templates exist
+#        run: |
+#          ls sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+#
+#      - name: Upload templates
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: templates
+#          path: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+#
+#  transform-specs:
+#    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-transform-specs.yaml@main
+#    needs: [upload-artifacts]
+#    with:
+#      transformations: '--headers --operationIdsToTags'
 
 #  confirm-upload:
 #    runs-on: ubuntu-latest
@@ -68,14 +68,14 @@ jobs:
 #      - name: List templates
 #        run: ls ./sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
-  generate-sdk:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/SDK-1232
-#    needs: [confirm-upload]
-    needs: [transform-specs]
-    with:
-      name: rapid
-      version: 0.0.6-SNAPSHOT
-      templates: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
+#  generate-sdk:
+#    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-generate.yaml@mohnoor94/SDK-1232
+##    needs: [confirm-upload]
+#    needs: [transform-specs]
+#    with:
+#      name: rapid
+#      version: 0.0.6-SNAPSHOT
+#      templates: sdk-repo/generator/openapi/src/main/resources/templates/expediagroup-sdk
 
 #  publish-sources:
 #    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-publish-sources.yaml@main
@@ -84,6 +84,13 @@ jobs:
 #      version: 0.0.6-SNAPSHOT
 #      path: code
 
-  publish:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-release.yaml@mohnoor94/SDK-1232
-    needs: [generate-sdk]
+#  publish:
+#    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-release.yaml@mohnoor94/SDK-1232
+#    needs: [generate-sdk]
+#
+  generate-and-publish:
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-full-workflow.yaml@mohnoor94/SDK-1407
+    with:
+      name: rapid
+      version: 0.0.7-SNAPSHOT
+

@@ -40,7 +40,7 @@ import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 
 /**
- * Attributes about the property. See our [attributes reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known attribute ID and name values.
+ * Attributes about the property. See our [attributes reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known attribute ID and name values.
  * @param general Lists all of the general attributes about the property.
  * @param pets Lists all of the pet attributes about the property.
  */

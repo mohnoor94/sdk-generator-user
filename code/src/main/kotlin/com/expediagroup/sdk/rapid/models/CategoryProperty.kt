@@ -39,7 +39,7 @@ import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 
 /**
- * The property's category. See our [property categories reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known category ID and name values.
+ * The property's category. See our [property categories reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known category ID and name values.
  * @param id The ID of the property's category.
  * @param name The property's category.
  */

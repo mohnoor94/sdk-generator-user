@@ -80,16 +80,16 @@ import javax.validation.constraints.Size
  * @param fees
  * @param policies
  * @param attributes
- * @param amenities Lists all of the amenities available for all guests at the property. See our [amenities reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
+ * @param amenities Lists all of the amenities available for all guests at the property. See our [amenities reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
  * @param images Contains all property images available.
  * @param onsitePayments
  * @param rooms Information about all of the rooms at the property.
  * @param rates Additional information about the rates offered by the property. This should be used in conjunction with the pricing and other rate-related information in shopping.
  * @param dates
  * @param descriptions
- * @param statistics Statistics of the property, such as number of floors. See our [statistics reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known statistics ID and name values.
+ * @param statistics Statistics of the property, such as number of floors. See our [statistics reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known statistics ID and name values.
  * @param airports
- * @param themes Themes that describe the property. See our [themes reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known theme ID and name values.
+ * @param themes Themes that describe the property. See our [themes reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known theme ID and name values.
  * @param allInclusive
  * @param taxId Tax ID.
  * @param chain
@@ -151,7 +151,7 @@ data class PropertyContent(
     @JsonProperty("attributes")
     @field:Valid
     val attributes: Attributes? = null,
-    // Lists all of the amenities available for all guests at the property. See our [amenities reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
+    // Lists all of the amenities available for all guests at the property. See our [amenities reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known amenity ID and name values.
     @JsonProperty("amenities")
     @field:Valid
     val amenities: kotlin.collections.Map<kotlin.String, Amenity>? = null,
@@ -176,14 +176,14 @@ data class PropertyContent(
     @JsonProperty("descriptions")
     @field:Valid
     val descriptions: Descriptions? = null,
-    // Statistics of the property, such as number of floors. See our [statistics reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known statistics ID and name values.
+    // Statistics of the property, such as number of floors. See our [statistics reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known statistics ID and name values.
     @JsonProperty("statistics")
     @field:Valid
     val statistics: kotlin.collections.Map<kotlin.String, Statistic>? = null,
     @JsonProperty("airports")
     @field:Valid
     val airports: AssociatedAirports? = null,
-    // Themes that describe the property. See our [themes reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known theme ID and name values.
+    // Themes that describe the property. See our [themes reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known theme ID and name values.
     @JsonProperty("themes")
     @field:Valid
     val themes: kotlin.collections.Map<kotlin.String, Theme>? = null,

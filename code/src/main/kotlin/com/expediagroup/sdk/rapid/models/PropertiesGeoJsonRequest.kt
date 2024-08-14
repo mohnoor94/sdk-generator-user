@@ -41,14 +41,14 @@ import javax.validation.constraints.Size
 /**
  * GeoJSON geometry
  * @param type The geometry type. The only supported type is `Polygon`
- * @param coordinates An array of linear ring coordinate arrays that combine to make up a single [Polygon](https:/www.rfc-editor.org/rfc/rfc7946#section-3.1.6) in geojson format. If there is more than one linear ring at this level, the first is the outer boundary and the remaining linear rings are interior rings or holes.
+ * @param coordinates An array of linear ring coordinate arrays that combine to make up a single [Polygon](https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6) in geojson format. If there is more than one linear ring at this level, the first is the outer boundary and the remaining linear rings are interior rings or holes.
  */
 data class PropertiesGeoJsonRequest(
     // The geometry type. The only supported type is `Polygon`
     @JsonProperty("type")
     @field:Valid
     val type: kotlin.String,
-    // An array of linear ring coordinate arrays that combine to make up a single [Polygon](https:/www.rfc-editor.org/rfc/rfc7946#section-3.1.6) in geojson format. If there is more than one linear ring at this level, the first is the outer boundary and the remaining linear rings are interior rings or holes.
+    // An array of linear ring coordinate arrays that combine to make up a single [Polygon](https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6) in geojson format. If there is more than one linear ring at this level, the first is the outer boundary and the remaining linear rings are interior rings or holes.
     @JsonProperty("coordinates")
     @field:Valid
     val coordinates: kotlin.collections.List<kotlin.collections.List<kotlin.collections.List<java.math.BigDecimal>>>

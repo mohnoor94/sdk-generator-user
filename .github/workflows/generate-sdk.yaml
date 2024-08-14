@@ -10,7 +10,7 @@ jobs:
       - name: Checkout current repository
         uses: actions/checkout@v4
         with:
-          repository: 'bla'
+          repository: 'bla/blabla'
           ref: 'bla'
 
       - name: Upload specs

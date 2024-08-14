@@ -103,7 +103,6 @@ jobs:
 
   generate-and-publish:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-full-workflow.yaml@mohnoor94/SDK-1407
-    needs: [ upload-artifacts ]
     with:
       name: ${{ inputs.name }}
       version: ${{ inputs.version }}

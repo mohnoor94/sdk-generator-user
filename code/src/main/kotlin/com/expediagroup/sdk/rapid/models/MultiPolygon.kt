@@ -41,10 +41,10 @@ import javax.validation.constraints.Size
 
 /**
  *
- * @param coordinates An array of multiple polygon(s) that combine to make a full [MultiPolygon](https://www.rfc-editor.org/rfc/rfc7946#section-3.1.7) in geojson format.
+ * @param coordinates An array of multiple polygon(s) that combine to make a full [MultiPolygon](https:/www.rfc-editor.org/rfc/rfc7946#section-3.1.7) in geojson format.
  */
 data class MultiPolygon(
-    // An array of multiple polygon(s) that combine to make a full [MultiPolygon](https://www.rfc-editor.org/rfc/rfc7946#section-3.1.7) in geojson format.
+    // An array of multiple polygon(s) that combine to make a full [MultiPolygon](https:/www.rfc-editor.org/rfc/rfc7946#section-3.1.7) in geojson format.
     @JsonProperty("coordinates")
     @field:Valid
     val coordinates: kotlin.collections.List<kotlin.collections.List<kotlin.collections.List<kotlin.collections.List<java.math.BigDecimal>>>>? = null

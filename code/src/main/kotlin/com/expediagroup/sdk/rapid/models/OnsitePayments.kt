@@ -40,7 +40,7 @@ import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 
 /**
- * The property’s accepted forms of payments when onsite. See our [onsite payment types reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known payment type ID and name values.
+ * The property’s accepted forms of payments when onsite. See our [onsite payment types reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known payment type ID and name values.
  * @param currency The currency accepted at the property.
  * @param types The types of payments accepted at the property.
  */

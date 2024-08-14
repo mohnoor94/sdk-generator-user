@@ -2,22 +2,31 @@ name: Generate SDK
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'SDK Name'
+        required: true
+        type: string
+      version:
+        description: 'SDK Version'
+        required: true
+        type: string
 
 jobs:
-  upload-artifacts:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout current repository
-        uses: actions/checkout@v4
-        with:
-          repository: ''
-          ref: ''
-
-      - name: Upload specs
-        uses: actions/upload-artifact@v4
-        with:
-          name: specs
-          path: specs.yaml
+#  upload-artifacts:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout current repository
+#        uses: actions/checkout@v4
+#        with:
+#          repository: ''
+#          ref: ''
+#
+#      - name: Upload specs
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: specs
+#          path: specs.yaml
   #
   #      - name: Checkout main SDK repository
   #        uses: actions/checkout@v4
@@ -91,10 +100,10 @@ jobs:
   #    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-release.yaml@mohnoor94/SDK-1232
   #    needs: [generate-sdk]
   #
+
   generate-and-publish:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-full-workflow.yaml@mohnoor94/SDK-1407
     needs: [ upload-artifacts ]
     with:
-      name: rapid
-      version: 0.0.8-SNAPSHOT
-
+      name: ${{ inputs.name }}
+      version: ${{ inputs.version }}

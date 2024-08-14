@@ -7,9 +7,9 @@ jobs:
   upload-artifacts:
     runs-on: ubuntu-latest
     steps:
-#      - name: Checkout current repository
-#        uses: actions/checkout@v4
-#
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+
       - name: Upload specs
         uses: actions/upload-artifact@v4
         with:

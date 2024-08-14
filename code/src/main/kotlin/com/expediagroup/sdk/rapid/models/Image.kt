@@ -40,7 +40,7 @@ import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 
 /**
- * An individual image. See our [image categories reference](https:/developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known caption and category values.
+ * An individual image. See our [image categories reference](https://developers.expediagroup.com/docs/rapid/lodging/content/content-reference-lists) for current known caption and category values.
  * @param heroImage Whether this image is a hero image or not.
  * @param category The category of the image.
  * @param caption The image caption.

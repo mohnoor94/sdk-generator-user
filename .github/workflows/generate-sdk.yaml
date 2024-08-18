@@ -106,4 +106,4 @@ jobs:
     with:
       name: ${{ inputs.name }}
       version: ${{ inputs.version }}
-      transformations: '--headers --operationIdsToTags -te /'
+      transformations: '--headers --operationIdsToTags --endpoint /'

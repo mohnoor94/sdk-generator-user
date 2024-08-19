@@ -53,3 +53,6 @@ jobs:
           done
           
           ls -R "${{ inputs.output_templates }}"
+          
+          # Display the content of each file in the output directory
+          find "${{ inputs.output_templates }}" -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;

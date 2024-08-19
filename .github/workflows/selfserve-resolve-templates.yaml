@@ -1,7 +1,7 @@
 name: Resolve Templates
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       base_templates:
         description: 'Base SDK templates path'

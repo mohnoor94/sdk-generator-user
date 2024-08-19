@@ -51,8 +51,12 @@ jobs:
               cp "$base_file" "$output_file"
             fi
           done
-          
-          ls -R "${{ inputs.output_templates }}"
-          
+                  
           # Display the content of each file in the output directory
           find "${{ inputs.output_templates }}" -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;
+
+      - name: Upload combined templates
+        uses: actions/upload-artifact@v4
+        with:
+          name: templates
+          path: ${{ inputs.output_templates }}

@@ -19,7 +19,7 @@ jobs:
       - name: Split custom templates
         id: split_custom_templates
         run: |
-          IFS=',' read -r -a templates <<< " ${{ inputs.custom_templates }}"
+          IFS=',' read -r -a templates <<< "${{ inputs.custom_templates }}"
           # print all the list in one line
           echo << "Custom templates: templates"
           echo "$templates" >> $GITHUB_OUTPUT

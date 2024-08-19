@@ -6,30 +6,29 @@ on:
       base_templates:
         description: 'Base SDK templates path'
         type: string
-        required: true
+        default: 'sdk-repo'
       custom_templates:
-        description: 'Comma-separated list of custom template sources to merge with base templates'
+        description: 'Custom templates path to merge with base templates'
         type: string
-        default: ''
+        default: 'code'
 
 jobs:
-  resolve_templates:
+  read-files:
     runs-on: ubuntu-latest
     steps:
-      - name: Split custom templates
-        id: split_custom_templates
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read and print files
         run: |
-          IFS=',' read -r -a templates <<< "${{ inputs.custom_templates }}"
-          for template in "${templates[@]}"; do
-            echo "Custom template: $template" >> $GITHUB_OUTPUT
+          DIRECTORY="${{ inputs.base_templates }}"
+          for file in $(find "$DIRECTORY" -type f); do
+            echo "File: $file"
           done
-
-      - name: Process base and custom templates
-        run: |
-          echo "Base templates: ${{ inputs.base_templates }}"
-
-          for template in ${{ steps.split_custom_templates.outputs.templates }}
-          do
-            echo "Processing custom template: $template"
-            # Add your processing logic here
+          
+          echo << "-------------------"
+          
+          DIRECTORY="${{ inputs.custom_templates }}"
+          for file in $(find "$DIRECTORY" -type f); do
+            echo "File: $file"
           done

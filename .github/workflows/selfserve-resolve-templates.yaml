@@ -20,6 +20,8 @@ jobs:
         id: split_custom_templates
         run: |
           IFS=',' read -r -a list <<< "$comma_separated_string"
+          # print all the list in one line
+          echo << "Custom templates: $comma_separated_string"
           $comma_separated_string >> $GITHUB_OUTPUT
 
       - name: Process base and custom templates

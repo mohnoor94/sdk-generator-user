@@ -11,10 +11,10 @@ on:
         description: 'Custom templates path to merge with base templates'
         type: string
         default: 'dummy/folder2'
-      output_key:
-        description: 'Artifact key of the combined templates'
+      output_templates:
+        description: 'Output path for the combined templates'
         type: string
-        default: 'templates'
+        default: 'dummy/output'
 
 jobs:
   read-files:
@@ -27,11 +27,10 @@ jobs:
         run: |
           echo "Base templates: ${{ inputs.base_templates }}"
           echo "Custom templates: ${{ inputs.custom_templates }}"
-          OUTPUT="tmp-output"
-          echo "Output templates: $OUTPUT"
+          echo "Output templates: ${{ inputs.output_templates }}"
 
           # Create the output directory if it doesn't exist
-          mkdir -p "$OUTPUT"
+          mkdir -p "${{ inputs.output_templates }}"
 
           # List all files in the base templates directory
           base_files=$(find "${{ inputs.base_templates }}" -type f)
@@ -52,9 +51,9 @@ jobs:
               cp "$base_file" "$output_file"
             fi
           done
-          
+                  
           # Display the content of each file in the output directory
-          find $OUTPUT -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;
+          find "${{ inputs.output_templates }}" -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;
 
       - name: Upload combined templates
         uses: actions/upload-artifact@v4

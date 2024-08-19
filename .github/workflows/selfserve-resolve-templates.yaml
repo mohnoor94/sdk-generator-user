@@ -21,6 +21,10 @@ jobs:
 
       - name: Read and print files
         run: |
+          ls -la
+          
+          echo << "---"
+          
           DIRECTORY="${{ inputs.base_templates }}"
           for file in $(find "$DIRECTORY" -type f); do
             echo "File: $file"
@@ -28,7 +32,7 @@ jobs:
           
           echo << "-------------------"
           
-          DIRECTORY="${{ inputs.custom_templates }}"
-          for file in $(find "$DIRECTORY" -type f); do
+          DIRECTORY2="${{ inputs.custom_templates }}"
+          for file in $(find "$DIRECTORY2" -type f); do
             echo "File: $file"
           done

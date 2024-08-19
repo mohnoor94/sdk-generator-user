@@ -12,7 +12,7 @@ on:
         type: string
         default: 'dummy/folder2'
       output_key:
-        description: 'Output path for the combined templates'
+        description: 'Artifact key of the combined templates'
         type: string
         default: 'templates'
 
@@ -52,7 +52,7 @@ jobs:
               cp "$base_file" "$output_file"
             fi
           done
-                  
+          
           # Display the content of each file in the output directory
           find $OUTPUT -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;
 

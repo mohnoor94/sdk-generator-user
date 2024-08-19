@@ -1,0 +1,31 @@
+name: Resolve Templates
+
+on:
+  workflow_call:
+    inputs:
+      base_templates:
+        description: 'Base SDK templates path'
+        type: string
+        required: true
+      custom_templates:
+        description: 'Comma-separated list of custom template sources to merge with base templates'
+        type: string
+        default: ''
+
+jobs:
+  resolve_templates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Split custom templates
+        id: split_custom_templates
+        run: |
+          echo "::set-output name=custom_templates::$(echo ${{ inputs.custom_templates }} | tr ',' '\n')"
+
+      - name: Process base and custom templates
+        run: |
+          echo "Base templates: ${{ inputs.base_templates }}"
+          for template in ${{ steps.split_custom_templates.outputs.custom_templates }}
+          do
+            echo "Processing custom template: $template"
+            # Add your processing logic here
+          done

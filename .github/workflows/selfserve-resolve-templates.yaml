@@ -6,11 +6,11 @@ on:
       base_templates:
         description: 'Base SDK templates path'
         type: string
-        default: '.github'
+        default: 'dummy/folder1'
       custom_templates:
         description: 'Custom templates path to merge with base templates'
         type: string
-        default: 'code'
+        default: 'dummy/folder2'
 
 jobs:
   read-files:

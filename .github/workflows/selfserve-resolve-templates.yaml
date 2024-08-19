@@ -20,16 +20,16 @@ jobs:
         id: split_custom_templates
         run: |
           IFS=',' read -r -a templates <<< "${{ inputs.custom_templates }}"
-          # print all the list in one line
-          echo << "Custom templates: templates"
-          echo "$templates" >> $GITHUB_OUTPUT
+          for template in "${templates[@]}"; do
+            echo "Custom template: $template" >> $GITHUB_OUTPUT
+          done
 
       - name: Process base and custom templates
         run: |
           echo "Base templates: ${{ inputs.base_templates }}"
 
           for template in ${{ steps.split_custom_templates.outputs.templates }}
-            do
-                echo "Processing custom template: $template"
-                # Add your processing logic here
-            done
+          do
+            echo "Processing custom template: $template"
+            # Add your processing logic here
+          done

@@ -19,12 +19,8 @@ jobs:
       - name: Split custom templates
         id: split_custom_templates
         run: |
-          custom_templates=$(echo "${{ inputs.custom_templates }}" | tr ',' '\n')
-          {
-            echo "custom_templates<<EOF"
-            echo "$custom_templates"
-            echo "EOF"
-          } >> $GITHUB_OUTPUT
+          IFS=',' read -r -a list <<< "$comma_separated_string"
+          $comma_separated_string >> $GITHUB_OUTPUT
 
       - name: Process base and custom templates
         run: |

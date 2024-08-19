@@ -11,6 +11,10 @@ on:
         description: 'Custom templates path to merge with base templates'
         type: string
         default: 'dummy/folder2'
+      output_templates:
+        description: 'Output path for the combined templates'
+        type: string
+        default: 'dummy/output'
 
 jobs:
   read-files:
@@ -19,20 +23,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Read and print files
+      - name: Combine templates
         run: |
-          ls -la
-          
-          echo "-------------------"
-          
-          DIRECTORY="${{ inputs.base_templates }}"
-          for file in $(find "$DIRECTORY" -type f); do
-            echo "File: $file"
+          echo "Base templates: ${{ inputs.base_templates }}"
+          echo "Custom templates: ${{ inputs.custom_templates }}"
+          echo "Output templates: ${{ inputs.output_templates }}"
+
+          # Create the output directory if it doesn't exist
+          mkdir -p "${{ inputs.output_templates }}"
+
+          # List all files in the base templates directory
+          base_files=$(find "${{ inputs.base_templates }}" -type f)
+
+          # For each file in the base templates directory, check if a file with the same name exists in the custom templates directory
+          for base_file in $base_files; do
+            relative_path="${base_file#${{ inputs.base_templates }}/}"
+            custom_file="${{ inputs.custom_templates }}/${relative_path}"
+            output_file="${{ inputs.output_templates }}/${relative_path}"
+
+            if [ -f "$custom_file" ]; then
+              echo "Copying $custom_file to $output_file"
+              mkdir -p "$(dirname "$output_file")"
+              cp "$custom_file" "$output_file"
+            else
+              echo "Copying $base_file to $output_file"
+              mkdir -p "$(dirname "$output_file")"
+              cp "$base_file" "$output_file"
+            fi
           done
           
-          echo "-------------------"
-          
-          DIRECTORY2="${{ inputs.custom_templates }}"
-          for file in $(find "$DIRECTORY2" -type f); do
-            echo "File: $file"
-          done
+          ls -R "${{ inputs.output_templates }}"

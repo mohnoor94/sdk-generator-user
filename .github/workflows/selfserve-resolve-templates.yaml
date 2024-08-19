@@ -20,8 +20,9 @@ jobs:
         id: split_custom_templates
         run: |
           custom_templates=$(echo "${{ inputs.custom_templates }}" | tr ',' '\n')
-          echo "custom_templates=$custom_templates" >> $GITHUB_OUTPUT
-          echo "Custom templates: $custom_templates"
+          echo "custom_templates<<EOF" >> $GITHUB_OUTPUT
+          echo "$custom_templates" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Process base and custom templates
         run: |

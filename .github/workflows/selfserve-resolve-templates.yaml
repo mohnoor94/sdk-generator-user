@@ -25,8 +25,9 @@ jobs:
       - name: Process base and custom templates
         run: |
           echo "Base templates: ${{ inputs.base_templates }}"
-          for template in ${{ steps.split_custom_templates.outputs.custom_templates }}
-          do
-            echo "Processing custom template: $template"
-            # Add your processing logic here
-          done
+          # print all elements in the array
+          for template in "${list[@]}"
+            do
+                echo "Processing custom template: $template"
+                # Add your processing logic here
+            done

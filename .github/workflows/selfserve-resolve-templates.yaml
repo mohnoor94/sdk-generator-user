@@ -31,7 +31,7 @@ jobs:
           echo "Output templates: $OUTPUT"
 
           # Create the output directory if it doesn't exist
-          mkdir -p $OUTPUT
+          mkdir -p "$OUTPUT"
 
           # List all files in the base templates directory
           base_files=$(find "${{ inputs.base_templates }}" -type f)

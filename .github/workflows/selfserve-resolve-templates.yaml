@@ -40,17 +40,16 @@ jobs:
           # Function to copy files from a source directory to the output directory
           copy_files() {
             local src_dir=$1
-            local base_dir=$2
             local files=$(find "$src_dir" -type f)
-          
-            echo "##>>>>> Copying files from $src_dir to $base_dir"
+
+            echo "##>>>>> Copying files from $src_dir"
             for file in $files; do
               echo "File: $file"
-              relative_path="${file#$base_dir/}"
-              output_file="tmp/templates/${relative_path}"
+              file_name=$(basename "$file")
+              output_file="tmp/templates/${file_name}"
 
               echo ">>> Processing $file"
-              echo "Relative path: $relative_path"
+              echo "File name: $file_name"
               echo "Output file: $output_file"
               echo "File exists: $(test -f "$output_file" && echo "yes" || echo "no")"
               echo "----------------------------------------"
@@ -62,18 +61,18 @@ jobs:
           }
 
           # Copy files from base templates
-          copy_files "${{ inputs.base_templates }}" "${{ inputs.base_templates }}"
+          copy_files "${{ inputs.base_templates }}"
 
           # Copy files from versioned directories in ascending order
           for ((i=1; i<=${{ inputs.version }}; i++)); do
             versioned_dir="${{ inputs.base_templates }}/v$i"
             echo ">>> Copying files from $versioned_dir"
-            copy_files "$versioned_dir" "${{ inputs.base_templates }}"
+            copy_files "$versioned_dir"
           done
 
           # Copy files from custom templates
           echo ">>> Copying files from ${{ inputs.custom_templates }}"
-          copy_files "${{ inputs.custom_templates }}" "${{ inputs.custom_templates }}"
+          copy_files "${{ inputs.custom_templates }}"
 
           # Display the content of each file in the output directory
           find "tmp/templates" -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;

@@ -42,6 +42,8 @@ jobs:
             local src_dir=$1
             local base_dir=$2
             local files=$(find "$src_dir" -type f)
+          
+            echo "##>>>>> Copying files from $src_dir to $base_dir"
             for file in $files; do
               relative_path="${file#$base_dir/}"
               output_file="tmp/templates/${relative_path}"

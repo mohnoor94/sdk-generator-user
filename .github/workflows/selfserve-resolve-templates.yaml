@@ -6,7 +6,7 @@ on:
       base_templates:
         description: 'Base SDK templates path'
         type: string
-        default: 'dummy/folder1'
+        default: 'dummy/base'
       custom_templates:
         description: 'Custom templates path to merge with base templates'
         type: string
@@ -15,6 +15,10 @@ on:
         description: 'Key to the combined templates artifact'
         type: string
         default: 'templates'
+      version:
+        description: 'Version number'
+        type: number
+        default: 3
 
 jobs:
   read-files:
@@ -27,6 +31,7 @@ jobs:
         run: |
           echo "Base templates: ${{ inputs.base_templates }}"
           echo "Custom templates: ${{ inputs.custom_templates }}"
+          echo "Version: ${{ inputs.version }}"
           echo "Output templates: tmp/templates"
 
           # Create the output directory if it doesn't exist
@@ -35,22 +40,34 @@ jobs:
           # List all files in the base templates directory
           base_files=$(find "${{ inputs.base_templates }}" -type f)
 
-          # For each file in the base templates directory, check if a file with the same name exists in the custom templates directory
-          for base_file in $base_files; do
-            relative_path="${base_file#${{ inputs.base_templates }}/}"
-            custom_file="${{ inputs.custom_templates }}/${relative_path}"
-            output_file="tmp/templates/${relative_path}"
+          # Function to copy files from a source directory to the output directory
+          copy_files() {
+            local src_dir=$1
+            for base_file in $base_files; do
+              relative_path="${base_file#${{ inputs.base_templates }}/}"
+              custom_file="${src_dir}/${relative_path}"
+              output_file="tmp/templates/${relative_path}"
 
-            if [ -f "$custom_file" ]; then
-              echo "Copying $custom_file to $output_file"
-              mkdir -p "$(dirname "$output_file")"
-              cp "$custom_file" "$output_file"
-            else
-              echo "Copying $base_file to $output_file"
-              mkdir -p "$(dirname "$output_file")"
-              cp "$base_file" "$output_file"
-            fi
+              if [ -f "$custom_file" ]; then
+                echo "Copying $custom_file to $output_file"
+                mkdir -p "$(dirname "$output_file")"
+                cp "$custom_file" "$output_file"
+              fi
+            done
+          }
+
+#          # Copy files from base templates
+#          copy_files "${{ inputs.base_templates }}"
+
+          # Copy files from versioned directories in ascending order
+          for ((i=1; i<=${{ inputs.version }}; i++)); do
+            versioned_dir="${{ inputs.base_templates }}/v$i"
+            echo ">>> Copying files from $versioned_dir"
+            copy_files "$versioned_dir"
           done
+
+          # Copy files from custom templates
+          copy_files "${{ inputs.custom_templates }}"
 
           # Display the content of each file in the output directory
           find "tmp/templates" -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;

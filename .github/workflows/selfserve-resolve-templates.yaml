@@ -48,9 +48,13 @@ jobs:
            custom_file="${src_dir}/${relative_path}"
            output_file="tmp/templates/${relative_path}"
           
+          echo ">>> Processing $base_file"
           echo "Relative path: $relative_path"
           echo "Custom file: $custom_file"
           echo "Output file: $output_file"
+          echo "Custom file exists: $(test -f "$custom_file" && echo "yes" || echo "no")"
+          echo "Output file exists: $(test -f "$output_file" && echo "yes" || echo "no")"
+          echo "----------------------------------------"
           
            if [ -f "$custom_file" ]; then
              echo "Copying $custom_file to $output_file"

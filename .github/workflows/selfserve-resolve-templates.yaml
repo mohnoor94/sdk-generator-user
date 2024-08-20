@@ -4,9 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       base_templates:
-        description: 'Base SDK templates path'
+        description: 'Base SDK templates path (without the versioned directories)'
         type: string
         default: 'dummy/base'
+      version:
+        description: 'Base templates version'
+        type: number
+        default: 3
       custom_templates:
         description: 'Custom templates path to merge with base templates'
         type: string
@@ -15,10 +19,6 @@ on:
         description: 'Key to the combined templates artifact'
         type: string
         default: 'templates'
-      version:
-        description: 'Version number'
-        type: number
-        default: 1
 
 jobs:
   combine-templates:

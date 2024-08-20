@@ -45,7 +45,7 @@ jobs:
           
             echo "##>>>>> Copying files from $src_dir to $base_dir"
             for file in $files; do
-              relative_path="${file#$base_dir/}"
+              relative_path="${$base_dir/}"
               output_file="tmp/templates/${relative_path}"
 
               echo ">>> Processing $file"

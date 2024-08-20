@@ -76,7 +76,14 @@ jobs:
 
           # Copy files from custom templates
           echo ">>> Copying files from ${{ inputs.custom_templates }}"
-          copy_files "${{ inputs.custom_templates }}"
+          custom_files=$(find "${{ inputs.custom_templates }}" -type f)
+          for custom_file in $custom_files; do
+            relative_path="${custom_file#${{ inputs.custom_templates }}/}"
+            output_file="tmp/templates/${relative_path}"
+            echo "Copying $custom_file to $output_file"
+            mkdir -p "$(dirname "$output_file")"
+            cp "$custom_file" "$output_file"
+          done
 
           # Display the content of each file in the output directory
           find "tmp/templates" -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;

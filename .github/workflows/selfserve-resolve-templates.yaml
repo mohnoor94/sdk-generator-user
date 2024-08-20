@@ -67,6 +67,7 @@ jobs:
           done
 
           # Copy files from custom templates
+          echo ">>> Copying files from ${{ inputs.custom_templates }}"
           copy_files "${{ inputs.custom_templates }}"
 
           # Display the content of each file in the output directory

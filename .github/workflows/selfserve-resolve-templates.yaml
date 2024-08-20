@@ -48,6 +48,10 @@ jobs:
            custom_file="${src_dir}/${relative_path}"
            output_file="tmp/templates/${relative_path}"
           
+          echo "Relative path: $relative_path"
+          echo "Custom file: $custom_file"
+          echo "Output file: $output_file"
+          
            if [ -f "$custom_file" ]; then
              echo "Copying $custom_file to $output_file"
              mkdir -p "$(dirname "$output_file")"

@@ -22,7 +22,12 @@ def handle_versions(base_templates, version, output_dir):
         copy_files(version_dir, output_dir, version_dir)
 
 
-def main(base_templates, version, custom_templates, output_dir):
+if __name__ == "__main__":
+    base_templates = os.getenv('INPUT_BASE_TEMPLATES')
+    custom_templates = os.getenv('INPUT_CUSTOM_TEMPLATES')
+    version = int(os.getenv('INPUT_VERSION'))
+    output_dir = 'tmp/templates'
+
     print(f"Base templates: {base_templates}")
     print(f"Custom templates: {custom_templates}")
     print(f"Version: {version}")
@@ -30,11 +35,3 @@ def main(base_templates, version, custom_templates, output_dir):
 
     handle_versions(base_templates, version, output_dir)
     copy_files(custom_templates, output_dir, custom_templates)
-
-
-if __name__ == "__main__":
-    base_templates = 'dummy/base'
-    version = 3
-    custom_templates = 'dummy/folder2'
-    output_dir = 'tmp/templates'
-    main(base_templates, version, custom_templates, output_dir)

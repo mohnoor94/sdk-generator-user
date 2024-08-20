@@ -65,7 +65,7 @@ jobs:
           for ((i=1; i<=${{ inputs.version }}; i++)); do
             versioned_dir="${{ inputs.base_templates }}/v$i"
             echo ">>> Copying files from $versioned_dir"
-            copy_files "$versioned_dir" "${{ inputs.base_templates }}/v$i"
+            copy_files "$versioned_dir" "${{ inputs.base_templates }}"
           done
 
           # Copy files from custom templates

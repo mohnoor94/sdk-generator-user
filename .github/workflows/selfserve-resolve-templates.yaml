@@ -43,47 +43,37 @@ jobs:
           # Function to copy files from a source directory to the output directory
           copy_files() {
             local src_dir=$1
-            for base_file in $base_files; do
-              relative_path="${base_file#${{ inputs.base_templates }}/}"
-              custom_file="${src_dir}/${relative_path}"
+            local base_dir=$2
+            local files=$(find "$src_dir" -type f)
+            for file in $files; do
+              relative_path="${file#$src_dir/}"
               output_file="tmp/templates/${relative_path}"
 
-              echo ">>> Processing $base_file"
+              echo ">>> Processing $file"
               echo "Relative path: $relative_path"
-              echo "Custom file: $custom_file"
               echo "Output file: $output_file"
-              echo "Custom file exists: $(test -f "$custom_file" && echo "yes" || echo "no")"
-              echo "Output file exists: $(test -f "$output_file" && echo "yes" || echo "no")"
+              echo "File exists: $(test -f "$output_file" && echo "yes" || echo "no")"
               echo "----------------------------------------"
 
-              if [ -f "$custom_file" ]; then
-                echo "Copying $custom_file to $output_file"
-                mkdir -p "$(dirname "$output_file")"
-                cp "$custom_file" "$output_file"
-              fi
+              echo "Copying $file to $output_file"
+              mkdir -p "$(dirname "$output_file")"
+              cp "$file" "$output_file"
             done
           }
 
           # Copy files from base templates
-          copy_files "${{ inputs.base_templates }}"
+          copy_files "${{ inputs.base_templates }}" "${{ inputs.base_templates }}"
 
           # Copy files from versioned directories in ascending order
           for ((i=1; i<=${{ inputs.version }}; i++)); do
             versioned_dir="${{ inputs.base_templates }}/v$i"
             echo ">>> Copying files from $versioned_dir"
-            copy_files "$versioned_dir"
+            copy_files "$versioned_dir" "${{ inputs.base_templates }}"
           done
 
           # Copy files from custom templates
           echo ">>> Copying files from ${{ inputs.custom_templates }}"
-          custom_files=$(find "${{ inputs.custom_templates }}" -type f)
-          for custom_file in $custom_files; do
-            relative_path="${custom_file#${{ inputs.custom_templates }}/}"
-            output_file="tmp/templates/${relative_path}"
-            echo "Copying $custom_file to $output_file"
-            mkdir -p "$(dirname "$output_file")"
-            cp "$custom_file" "$output_file"
-          done
+          copy_files "${{ inputs.custom_templates }}" "${{ inputs.custom_templates }}"
 
           # Display the content of each file in the output directory
           find "tmp/templates" -type f -exec echo "Content of {}:" \; -exec cat {} \; -exec echo \;

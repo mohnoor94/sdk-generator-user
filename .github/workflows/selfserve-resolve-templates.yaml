@@ -37,16 +37,13 @@ jobs:
           # Create the output directory if it doesn't exist
           mkdir -p "tmp/templates"
 
-          # List all files in the base templates directory
-          base_files=$(find "${{ inputs.base_templates }}" -type f)
-
           # Function to copy files from a source directory to the output directory
           copy_files() {
             local src_dir=$1
             local base_dir=$2
             local files=$(find "$src_dir" -type f)
             for file in $files; do
-              relative_path="${file#$src_dir/}"
+              relative_path="${file#$base_dir/}"
               output_file="tmp/templates/${relative_path}"
 
               echo ">>> Processing $file"
@@ -68,7 +65,7 @@ jobs:
           for ((i=1; i<=${{ inputs.version }}; i++)); do
             versioned_dir="${{ inputs.base_templates }}/v$i"
             echo ">>> Copying files from $versioned_dir"
-            copy_files "$versioned_dir" "${{ inputs.base_templates }}"
+            copy_files "$versioned_dir" "${{ inputs.base_templates }}/v$i"
           done
 
           # Copy files from custom templates

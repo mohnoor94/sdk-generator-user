@@ -33,45 +33,45 @@ jobs:
           echo "Custom templates: ${{ inputs.custom_templates }}"
           echo "Version: ${{ inputs.version }}"
           echo "Output templates: tmp/templates"
-          
+
           # Create the output directory if it doesn't exist
           mkdir -p "tmp/templates"
-          
+
           # List all files in the base templates directory
           base_files=$(find "${{ inputs.base_templates }}" -type f)
-          
+
           # Function to copy files from a source directory to the output directory
           copy_files() {
-          local src_dir=$1
-          for base_file in $base_files; do
-           relative_path="${base_file#${{ inputs.base_templates }}/}"
-           custom_file="${src_dir}/${relative_path}"
-           output_file="tmp/templates/${relative_path}"
-          
-          echo ">>> Processing $base_file"
-          echo "Relative path: $relative_path"
-          echo "Custom file: $custom_file"
-          echo "Output file: $output_file"
-          echo "Custom file exists: $(test -f "$custom_file" && echo "yes" || echo "no")"
-          echo "Output file exists: $(test -f "$output_file" && echo "yes" || echo "no")"
-          echo "----------------------------------------"
-          
-           if [ -f "$custom_file" ]; then
-             echo "Copying $custom_file to $output_file"
-             mkdir -p "$(dirname "$output_file")"
-             cp "$custom_file" "$output_file"
-           fi
-          done
+            local src_dir=$1
+            for base_file in $base_files; do
+              relative_path="${base_file#${{ inputs.base_templates }}/}"
+              custom_file="${src_dir}/${relative_path}"
+              output_file="tmp/templates/${relative_path}"
+
+              echo ">>> Processing $base_file"
+              echo "Relative path: $relative_path"
+              echo "Custom file: $custom_file"
+              echo "Output file: $output_file"
+              echo "Custom file exists: $(test -f "$custom_file" && echo "yes" || echo "no")"
+              echo "Output file exists: $(test -f "$output_file" && echo "yes" || echo "no")"
+              echo "----------------------------------------"
+
+              if [ -f "$custom_file" ]; then
+                echo "Copying $custom_file to $output_file"
+                mkdir -p "$(dirname "$output_file")"
+                cp "$custom_file" "$output_file"
+              fi
+            done
           }
-          
-          #          # Copy files from base templates
-          #          copy_files "${{ inputs.base_templates }}"
+
+          # Copy files from base templates
+          copy_files "${{ inputs.base_templates }}"
 
           # Copy files from versioned directories in ascending order
           for ((i=1; i<=${{ inputs.version }}; i++)); do
-          versioned_dir="${{ inputs.base_templates }}/v$i"
-          echo ">>> Copying files from $versioned_dir"
-          copy_files "$versioned_dir"
+            versioned_dir="${{ inputs.base_templates }}/v$i"
+            echo ">>> Copying files from $versioned_dir"
+            copy_files "$versioned_dir"
           done
 
           # Copy files from custom templates

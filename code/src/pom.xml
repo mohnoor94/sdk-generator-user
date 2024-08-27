@@ -2,12 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.expediagroup</groupId>
     <artifactId>rapid-sdk</artifactId>
-    <version>0.0.48-SNAPSHOT</version>
+    <version>0.0.63-SNAPSHOT</version>
     <name>EG rapid-sdk for Java</name>
-    <description>EG rapid-sdk v0.0.48-SNAPSHOT</description>
+    <description>EG rapid-sdk v0.0.63-SNAPSHOT</description>
     <url>https://github.com/ExpediaGroup/test-sdk</url>
     <inceptionYear>2022</inceptionYear>
     <packaging>jar</packaging>

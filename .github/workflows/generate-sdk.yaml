@@ -8,7 +8,7 @@ on:
         type: string
         default: rapid
       version:
-        description: 'SDK Version. Will be substituted in the version field of the generated SDK as 0.0.x-SNAPSHOT, where x is the version number provided here'
+        description: 'SDK Version. (0.0.x-SNAPSHOT)'
         type: number
         required: true
       templates:

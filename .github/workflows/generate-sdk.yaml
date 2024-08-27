@@ -9,8 +9,8 @@ on:
         default: rapid
       version:
         description: 'SDK Version'
-        type: string
-        default: 0.0.0-SNAPSHOT
+        type: number
+        required: true
       templates:
         description: 'Custom templates path to merge with base templates'
         type: choice
@@ -112,5 +112,5 @@ jobs:
     uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-full-workflow.yaml@mohnoor94/SDK-1394
     with:
       name: ${{ inputs.name }}
-      version: ${{ inputs.version }}
+      version: 0.0.${{ inputs.version }}-SNAPSHOT
       custom_templates_path: ${{ inputs.templates }}

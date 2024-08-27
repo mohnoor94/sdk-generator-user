@@ -16,8 +16,8 @@ on:
         type: choice
         options:
           - 'dummy/templates'
-          - ''
-        default: ''
+          - 'whatever'
+        default: 'whatever'
 
 jobs:
   generate-and-publish:
@@ -25,4 +25,4 @@ jobs:
     with:
       name: ${{ inputs.name }}
       version: 0.0.${{ inputs.version }}-SNAPSHOT
-#      custom_templates_path: ${{ inputs.templates }}
+      custom_templates_path: ${{ inputs.templates }}

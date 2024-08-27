@@ -9,8 +9,9 @@ on:
         default: 'dummy/base'
       custom_templates:
         description: 'Custom templates path to merge with base templates'
-        type: string
-        default: 'dummy/folder2'
+        type: choice
+        options: ['dummy/folder1', 'dummy/folder2', '']
+        default: ''
       combined_templates_key:
         description: 'Key to the combined templates artifact'
         type: string

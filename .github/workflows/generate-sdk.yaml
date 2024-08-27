@@ -5,32 +5,32 @@ on:
     inputs:
       name:
         description: 'SDK Name'
-        required: true
         type: string
+        default: rapid
       version:
         description: 'SDK Version'
-        required: true
         type: string
+        default: 0.0.0-SNAPSHOT
       templates:
         description: 'Custom templates path to merge with base templates'
         type: string
-        default: ''
+        default: dummy/templates
 
 jobs:
-#  upload-artifacts:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout current repository
-#        uses: actions/checkout@v4
-#        with:
-#          repository: ''
-#          ref: ''
-#
-#      - name: Upload specs
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: specs
-#          path: specs.yaml
+  #  upload-artifacts:
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - name: Checkout current repository
+  #        uses: actions/checkout@v4
+  #        with:
+  #          repository: ''
+  #          ref: ''
+  #
+  #      - name: Upload specs
+  #        uses: actions/upload-artifact@v4
+  #        with:
+  #          name: specs
+  #          path: specs.yaml
   #
   #      - name: Checkout main SDK repository
   #        uses: actions/checkout@v4
@@ -110,4 +110,4 @@ jobs:
     with:
       name: ${{ inputs.name }}
       version: ${{ inputs.version }}
-      custom_templates: ${{ inputs.templates }}
+      custom_templates_path: ${{ inputs.templates }}

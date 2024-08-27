@@ -8,7 +8,7 @@ on:
         type: string
         default: rapid
       version:
-        description: 'SDK Version. (0.0.x-SNAPSHOT)'
+        description: 'SDK Version (0.0.x-SNAPSHOT)'
         type: number
         required: true
       templates:

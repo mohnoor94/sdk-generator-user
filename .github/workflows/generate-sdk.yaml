@@ -5,12 +5,12 @@ on:
     inputs:
       name:
         description: 'SDK Name'
-        required: true
         type: string
+        default: rapid
       version:
         description: 'SDK Version'
-        required: true
         type: string
+        default: 0.0.0-SNAPSHOT
       templates:
         description: 'Custom templates path to merge with base templates'
         type: string

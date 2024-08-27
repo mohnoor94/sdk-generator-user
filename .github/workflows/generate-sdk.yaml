@@ -11,6 +11,10 @@ on:
         description: 'SDK Version'
         required: true
         type: string
+      templates:
+        description: 'Custom templates path to merge with base templates'
+        type: string
+        default: ''
 
 jobs:
 #  upload-artifacts:
@@ -106,3 +110,4 @@ jobs:
     with:
       name: ${{ inputs.name }}
       version: ${{ inputs.version }}
+      custom_templates: ${{ inputs.templates }}

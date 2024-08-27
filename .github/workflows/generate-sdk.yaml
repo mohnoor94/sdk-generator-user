@@ -110,4 +110,4 @@ jobs:
     with:
       name: ${{ inputs.name }}
       version: ${{ inputs.version }}
-      custom_templates: ${{ inputs.templates }}
+      custom_templates_path: ${{ inputs.templates }}

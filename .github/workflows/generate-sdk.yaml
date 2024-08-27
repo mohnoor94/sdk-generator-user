@@ -13,8 +13,11 @@ on:
         default: 0.0.0-SNAPSHOT
       templates:
         description: 'Custom templates path to merge with base templates'
-        type: string
-        default: dummy/templates
+        type: choice
+        options:
+          - 'dummy/templates'
+          - ''
+        default: ''`
 
 jobs:
   #  upload-artifacts:

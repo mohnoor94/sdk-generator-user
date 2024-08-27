@@ -17,7 +17,7 @@ on:
         options:
           - 'dummy/templates'
           - ''
-        default: ''`
+        default: ''
 
 jobs:
   #  upload-artifacts:

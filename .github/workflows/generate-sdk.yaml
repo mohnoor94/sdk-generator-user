@@ -21,7 +21,7 @@ on:
 
 jobs:
   generate-and-publish:
-    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-full-workflow.yaml@mohnoor94/SDK-1394
+    uses: ExpediaGroup/expediagroup-java-sdk/.github/workflows/selfserve-full-workflow.yaml@mohnoor94/SDK-1394-combine-templates
     with:
       name: ${{ inputs.name }}
       version: 0.0.${{ inputs.version }}-SNAPSHOT

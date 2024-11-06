@@ -21,4 +21,4 @@ jobs:
       - name: Run Pull Request Title Validation
         env:
           PR_TITLE: ${{ github.event.pull_request.title }}
-        run: npx commitlint --config commitlint.config.js --verbose <<< "$PR_TITLE"
+        run: npx -p @commitlint/cli -p @commitlint/config-conventional commitlint --config commitlint.config.js --verbose <<< "$PR_TITLE"

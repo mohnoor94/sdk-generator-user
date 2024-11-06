@@ -1,7 +1,14 @@
 name: Contribution Quality Checks
 on:
-  workflow_dispatch:
-
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+      - ready_for_review
+      - review_requested
+      - auto_merge_enabled
 jobs:
   contribution-lint:
     name: Contribution Details Validation

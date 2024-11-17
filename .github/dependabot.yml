@@ -15,9 +15,7 @@ updates:
       - Dependabot
 
   - package-ecosystem: maven
-    directory: "/"
-    exclude:
-      - "/code/**"
+    directory: "/examples"
     schedule:
       interval: daily
       time: "11:30"
